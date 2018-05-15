@@ -7,17 +7,19 @@
   
   <title>RPC的初步了解（一） | Myblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RPC:Remote Procedure 远程调用过程使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC. 基本概念知识：1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。2.目的：  1.实现不同语言之间的通">
+  <meta name="description" content="这里应该是主要写写基本的概念和整个流程，以及服务端处理的流程。 RPC:Remote Procedure 远程调用过程使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC. 基本概念知识：1.RPC 是基于Tcp/Ip底层协">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RPC的初步了解（一）">
 <meta property="og:url" content="http://yoursite.com/2018/05/14/RPC的初步了解（一）/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="RPC:Remote Procedure 远程调用过程使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC. 基本概念知识：1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。2.目的：  1.实现不同语言之间的通">
+<meta property="og:description" content="这里应该是主要写写基本的概念和整个流程，以及服务端处理的流程。 RPC:Remote Procedure 远程调用过程使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC. 基本概念知识：1.RPC 是基于Tcp/Ip底层协">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-14T12:58:49.648Z">
+<meta property="og:image" content="http://yoursite.com/source/img">
+<meta property="og:updated_time" content="2018-05-15T07:19:23.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC的初步了解（一）">
-<meta name="twitter:description" content="RPC:Remote Procedure 远程调用过程使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC. 基本概念知识：1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。2.目的：  1.实现不同语言之间的通">
+<meta name="twitter:description" content="这里应该是主要写写基本的概念和整个流程，以及服务端处理的流程。 RPC:Remote Procedure 远程调用过程使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC. 基本概念知识：1.RPC 是基于Tcp/Ip底层协">
+<meta name="twitter:image" content="http://yoursite.com/source/img">
   
   
   
@@ -80,15 +82,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="RPC-Remote-Procedure-远程调用过程"><a href="#RPC-Remote-Procedure-远程调用过程" class="headerlink" title="RPC:Remote Procedure 远程调用过程"></a>RPC:Remote Procedure 远程调用过程</h4><p>使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC.</p>
+        <p>这里应该是主要写写基本的概念和整个流程，以及服务端处理的流程。</p>
+<h4 id="RPC-Remote-Procedure-远程调用过程"><a href="#RPC-Remote-Procedure-远程调用过程" class="headerlink" title="RPC:Remote Procedure 远程调用过程"></a>RPC:Remote Procedure 远程调用过程</h4><p>使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC.</p>
 <h3 id="基本概念知识："><a href="#基本概念知识：" class="headerlink" title="基本概念知识："></a>基本概念知识：</h3><h4 id="1-RPC-是基于Tcp-Ip底层协议，C-S模式的一种模式。"><a href="#1-RPC-是基于Tcp-Ip底层协议，C-S模式的一种模式。" class="headerlink" title="1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。"></a>1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。</h4><h4 id="2-目的："><a href="#2-目的：" class="headerlink" title="2.目的："></a>2.目的：</h4><p>  1.实现不同语言之间的通信，例如我这次的使用原因。</p>
 <p>  2.调用其他端，不是本机的方法。  </p>
 <p>  3.使用简单，可以用简单的网络传输调用，我这里主要会研究一下，Socket的调用。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>RPC 服务端通过一个通信方式 ，【导出】远程接口方法，客户端用 import 【导入】远程接口。  </p>
+<ol>
+<li>client 调用一些‘本地’方法。</li>
+<li>client stub 接收到调用方法以后，将方法和参数等按照约定好的规则编码成可以在传输层传输的消息。</li>
+<li>client stub 将编码好的规则发送到服务器</li>
+<li>服务端监听到消息以后，开始对接收到的消息进行解码。</li>
+<li>根据解码以后的消息规则，找到对应的函数去执行</li>
+<li>将执行的结果进行编码，在返回给出了client.<br>盗用一张图来说明大概过程：<br><img src="\source\img" alt="Rpc结构图"></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/14/RPC的初步了解（一）/" data-id="cjh69vgt80000dwuz56t51l8i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/14/RPC的初步了解（一）/" data-id="cjh7ckhj800016kuz8kyi7dtt" class="article-share-link">Share</a>
       
       
     </footer>
