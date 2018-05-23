@@ -80,6 +80,60 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/05/22/RPC的初步了解（二）/" title="RPC的初步了解（二）" itemprop="url">RPC的初步了解（二）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="l-azrael" target="_blank" itemprop="author">l-azrael</a>
+		
+  <p class="article-time">
+    <time datetime="2018-05-22T12:19:11.937Z" itemprop="datePublished"> Published 2018-05-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>上一篇已经大致说了Server端，RPC的基本信息，这里主要说Client端相关的。我这里主要以Python为例子。大概了解一下过程，怎么去使用，以及大概的原理。这里主要根据实际使用的一个游戏自动化开源框架说一下这个是怎么使用的。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//连接到server端</span><br><span class="line">connectionToServer(addr,connect_default_device)</span><br><span class="line">--</span><br><span class="line">if device_platform() == &quot;Android&quot;:</span><br><span class="line">    # always forward port for Android</span><br><span class="line">    # unity games poco sdk listens on Android localhost:5001</span><br><span class="line">    current_device().adb.forward(&quot;tcp:%s&quot; % addr[1], &quot;tcp:5001&quot;, False)</span><br><span class="line">--</span><br><span class="line">--</span><br><span class="line">  self.conn = TcpClient(addr)</span><br><span class="line">  self.c = RpcClient(self.conn)</span><br><span class="line">--</span><br></pre></td></tr></table></figure>
+<p>自己使用这个接口的时候，需要使用RPClient传出来的接口，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class UnityPocoJX3MEx():</span><br><span class="line">    def __init__(self, agent, poco):</span><br><span class="line">        self.rpcclient = agent.c</span><br><span class="line">        self.poco = poco</span><br></pre></td></tr></table></figure></p>
+<p>通过封装的cmd接口，将函数传到服务端，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def callCmd(self, cmd, *param):</span><br><span class="line">    return self.rpcclient.call(cmd, *param)</span><br><span class="line"></span><br><span class="line">def cmd(self, cmd, *param):</span><br><span class="line">    return self.callCmd(cmd, *param)</span><br></pre></td></tr></table></figure></p>
+<p>举个我们最上层使用的例子：Click是我们在Server端，定义的RPC的函数，strUIPath是我们定义的函数参数，cmd_result_click是函数执行以后函数的返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd_result_click = poco.pocoEx.cmd(&apos;Click&apos;, strUIPath)</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/05/15/RPC的初步了解（一）/" title="RPC的初步了解（一）" itemprop="url">RPC的初步了解（一）</a>
   </h1>
   <p class="article-author">By
