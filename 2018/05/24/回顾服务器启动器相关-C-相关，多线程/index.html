@@ -4,23 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Myblog</title>
+    <title>回顾服务器启动器相关(C#相关，多线程) | Myblog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="l-azrael">
     
 
     
-    <meta name="description" content="加油">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Myblog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="大概回忆复习一下吧，这块涉及到多线程和界面相关的知识。一步一步来吧：按照当时的进度来记录一下   ###大概模块    读配置部分，ConfigHander的类主要就是根据Toml的配置语法，大概配置的一个文件，按照一定的格式，key = value的形式具体语法可以自行百度，当时在Githup上找了一个C++的解释器，一个C#的解释器，前期就是熟悉Toml语法，然后熟悉解释器的用法，忘了具体链接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回顾服务器启动器相关(C#相关，多线程)">
+<meta property="og:url" content="http://yoursite.com/2018/05/24/回顾服务器启动器相关-C-相关，多线程/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="加油">
+<meta property="og:description" content="大概回忆复习一下吧，这块涉及到多线程和界面相关的知识。一步一步来吧：按照当时的进度来记录一下   ###大概模块    读配置部分，ConfigHander的类主要就是根据Toml的配置语法，大概配置的一个文件，按照一定的格式，key = value的形式具体语法可以自行百度，当时在Githup上找了一个C++的解释器，一个C#的解释器，前期就是熟悉Toml语法，然后熟悉解释器的用法，忘了具体链接">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-25T11:43:17.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Myblog">
-<meta name="twitter:description" content="加油">
+<meta name="twitter:title" content="回顾服务器启动器相关(C#相关，多线程)">
+<meta name="twitter:description" content="大概回忆复习一下吧，这块涉及到多线程和界面相关的知识。一步一步来吧：按照当时的进度来记录一下   ###大概模块    读配置部分，ConfigHander的类主要就是根据Toml的配置语法，大概配置的一个文件，按照一定的格式，key = value的形式具体语法可以自行百度，当时在Githup上找了一个C++的解释器，一个C#的解释器，前期就是熟悉Toml语法，然后熟悉解释器的用法，忘了具体链接">
 
     
     
@@ -72,12 +73,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2018/05/24/回顾服务器启动器相关-C-相关，多线程/" title="回顾服务器启动器相关(C#相关，多线程)" itemprop="url">回顾服务器启动器相关(C#相关，多线程)</a>
@@ -91,9 +90,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>大概回忆复习一下吧，这块涉及到多线程和界面相关的知识。一步一步来吧：按照当时的进度来记录一下  </p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#的确会有问题，状态会在进程和线程中交互被更改，可能会出现，发送的状态指令没有被执行，或者同时进程A和线程B会同时对同一个状态值进行修改，无关是否是原子操作，如果加锁操作。-但是也可以理解为一个设置，避免太频繁的对process的开关进行操作。所有的都不能完全避免被其他操作的可能。"><span class="toc-number">1.</span> <span class="toc-text">的确会有问题，状态会在进程和线程中交互被更改，可能会出现，发送的状态指令没有被执行，或者同时进程A和线程B会同时对同一个状态值进行修改，无关是否是原子操作，如果加锁操作。  但是也可以理解为一个设置，避免太频繁的对process的开关进行操作。所有的都不能完全避免被其他操作的可能。</span></a></li></ol>
+		
+		</div>
+		
+		<p>大概回忆复习一下吧，这块涉及到多线程和界面相关的知识。一步一步来吧：按照当时的进度来记录一下  </p>
 <p>###大概模块  </p>
 <ol>
 <li><p>读配置部分，ConfigHander的类<br>主要就是根据Toml的配置语法，大概配置的一个文件，按照一定的格式，key = value的形式<br>具体语法可以自行百度，当时在Githup上找了一个C++的解释器，一个C#的解释器，前期就是熟悉Toml语法，然后熟悉解释器的用法，忘了具体链接。这里有一个链接可以看看<a href="https://segmentfault.com/a/1190000000477752" target="_blank" rel="noopener">toml</a>  </p>
@@ -115,14 +121,9 @@
 </li>
 <li>winform 主要就是界面和ProcessManger之间的一个交互，以及和log相关的一些操作</li>
 </ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -130,265 +131,45 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2018/05/24/回顾服务器启动器相关-C-相关，多线程/" data-title="回顾服务器启动器相关(C#相关，多线程) | Myblog" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/05/22/RPC的初步了解（二）/" title="RPC的初步了解（二）" itemprop="url">RPC的初步了解（二）</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="l-azrael" target="_blank" itemprop="author">l-azrael</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-22T12:19:11.937Z" itemprop="datePublished"> Published 2018-05-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>上一篇已经大致说了Server端，RPC的基本信息，这里主要说Client端相关的。我这里主要以Python为例子。大概了解一下过程，怎么去使用，以及大概的原理。这里主要根据实际使用的一个游戏自动化开源框架说一下这个是怎么使用的。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//连接到server端</span><br><span class="line">connectionToServer(addr,connect_default_device)</span><br><span class="line">--</span><br><span class="line">if device_platform() == &quot;Android&quot;:</span><br><span class="line">    # always forward port for Android</span><br><span class="line">    # unity games poco sdk listens on Android localhost:5001</span><br><span class="line">    current_device().adb.forward(&quot;tcp:%s&quot; % addr[1], &quot;tcp:5001&quot;, False)</span><br><span class="line">--</span><br><span class="line">--</span><br><span class="line">  self.conn = TcpClient(addr)</span><br><span class="line">  self.c = RpcClient(self.conn)</span><br><span class="line">--</span><br></pre></td></tr></table></figure>
-<p>自己使用这个接口的时候，需要使用RPClient传出来的接口，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class UnityPocoJX3MEx():</span><br><span class="line">    def __init__(self, agent, poco):</span><br><span class="line">        self.rpcclient = agent.c</span><br><span class="line">        self.poco = poco</span><br></pre></td></tr></table></figure></p>
-<p>通过封装的cmd接口，将函数传到服务端，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def callCmd(self, cmd, *param):</span><br><span class="line">    return self.rpcclient.call(cmd, *param)</span><br><span class="line"></span><br><span class="line">def cmd(self, cmd, *param):</span><br><span class="line">    return self.callCmd(cmd, *param)</span><br></pre></td></tr></table></figure></p>
-<p>举个我们最上层使用的例子：Click是我们在Server端，定义的RPC的函数，strUIPath是我们定义的函数参数，cmd_result_click是函数执行以后函数的返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd_result_click = poco.pocoEx.cmd(&apos;Click&apos;, strUIPath)</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/05/22/RPC的初步了解（二）/"  title="RPC的初步了解（二）">
+ <strong>下一篇：</strong><br/> 
+ <span>RPC的初步了解（二）
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/05/15/RPC的初步了解（一）/" title="RPC的初步了解（一）" itemprop="url">RPC的初步了解（一）</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="l-azrael" target="_blank" itemprop="author">l-azrael</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-15T07:46:44.225Z" itemprop="datePublished"> Published 2018-05-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>这里应该是主要写写基本的概念和整个流程，以及服务端处理的流程。</p>
-<h4 id="RPC-Remote-Procedure-远程调用过程"><a href="#RPC-Remote-Procedure-远程调用过程" class="headerlink" title="RPC:Remote Procedure 远程调用过程"></a>RPC:Remote Procedure 远程调用过程</h4><p>使用的环境：在准备搭建自动化收集数据的平台，因为游戏的很多客户端逻辑是C#构造的，所以一些功能性操作都是基于C#的函数，但是想用AutoGo框架来写自动化的测试用例，这时候需要跨服务使用其他语言的接口，这种情况下，接触到了RPC.</p>
-<h3 id="基本概念知识："><a href="#基本概念知识：" class="headerlink" title="基本概念知识："></a>基本概念知识：</h3><h4 id="1-RPC-是基于Tcp-Ip底层协议，C-S模式的一种模式。"><a href="#1-RPC-是基于Tcp-Ip底层协议，C-S模式的一种模式。" class="headerlink" title="1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。"></a>1.RPC 是基于Tcp/Ip底层协议，C/S模式的一种模式。</h4><h4 id="2-目的："><a href="#2-目的：" class="headerlink" title="2.目的："></a>2.目的：</h4><p>  1.实现不同语言之间的通信，例如我这次的使用原因。</p>
-<p>  2.调用其他端，不是本机的方法。  </p>
-<p>  3.使用简单，可以用简单的网络传输调用，我这里主要会研究一下，Socket的调用。</p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>RPC 服务端通过一个通信方式 ，【导出】远程接口方法，客户端用 import 【导入】远程接口。  </p>
-<ol>
-<li>client 调用一些‘本地’方法。</li>
-<li>client stub 接收到调用方法以后，将方法和参数等按照约定好的规则编码成可以在传输层传输的消息。</li>
-<li>client stub 将编码好的规则发送到服务器</li>
-<li>服务端监听到消息以后，开始对接收到的消息进行解码。</li>
-<li>根据解码以后的消息规则，找到对应的函数去执行</li>
-<li><p>将执行的结果进行编码，在返回给出了client.<br>盗用一张图来说明大概过程：<br><img src="/2018/05/15/RPC的初步了解（一）/rpc.png" alt="Rpc结构图"></p>
-<p>这里首先主要理清楚服务端做的操作：<br>整个操作，比较简单的操作其实就是：  </p>
-<ol>
-<li>服务端开启网络监听端口， 主要监听是否有连接或者数据发过来<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 监听 事件</span><br><span class="line">Socket.Listen(ip, port, OnAccept)</span><br><span class="line">// 自定义事件</span><br><span class="line">OnAccept()</span><br><span class="line">&#123;</span><br><span class="line">    //自定义两个事件</span><br><span class="line">    so.OnError = OnError;</span><br><span class="line">    so.OnRecv = OnRecv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li><p>OnRecv 到数据以后，开始分析收到的数据，我们将受到数据进行反序列化成为我们日常读写的字符。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//将实际函数的实现用委托来和client实现数据的交互</span><br><span class="line">public delegate object RpcMethod(List&lt;object&gt; param);</span><br><span class="line"></span><br><span class="line">//可以在初始化的时候  将RPC的方法通过委托注册进ListRpcMethod的列表</span><br><span class="line">ListRpcMethod.add(&quot;Add&quot;, Add)</span><br><span class="line">通过委托不会同步等待数据 导致主干的逻辑受到影响</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拿到分析后的数据，去执行相应的函数，我们这里用的是C#的委托进行，返回执行结果。  </p>
-</li>
-<li>将结果序列化以后，Send 出去。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (m_Client != null)</span><br><span class="line">  &#123;</span><br><span class="line">      Socket.Send(m_Client, messgae, messgae.Length);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>服务端单方面结果完毕，大概就是这么个过程</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
-
-</footer>
-
-
-    </article>
 
 
 
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/05/11/Test/" title="Test" itemprop="url">Test</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="l-azrael" target="_blank" itemprop="author">l-azrael</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-11T12:13:52.411Z" itemprop="datePublished"> Published 2018-05-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>hello</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/05/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="l-azrael" target="_blank" itemprop="author">l-azrael</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-10T13:46:37.632Z" itemprop="datePublished"> Published 2018-05-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#的确会有问题，状态会在进程和线程中交互被更改，可能会出现，发送的状态指令没有被执行，或者同时进程A和线程B会同时对同一个状态值进行修改，无关是否是原子操作，如果加锁操作。-但是也可以理解为一个设置，避免太频繁的对process的开关进行操作。所有的都不能完全避免被其他操作的可能。"><span class="toc-number">1.</span> <span class="toc-text">的确会有问题，状态会在进程和线程中交互被更改，可能会出现，发送的状态指令没有被执行，或者同时进程A和线程B会同时对同一个状态值进行修改，无关是否是原子操作，如果加锁操作。  但是也可以理解为一个设置，避免太频繁的对process的开关进行操作。所有的都不能完全避免被其他操作的可能。</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -488,12 +269,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -566,4 +424,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
