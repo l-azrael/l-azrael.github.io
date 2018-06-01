@@ -80,6 +80,59 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/05/26/Tcp-IP相关-三次握手和四次挥手详情/" title="Tcp/IP相关 三次握手和四次挥手详情" itemprop="url">Tcp/IP相关 三次握手和四次挥手详情</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="l-azrael" target="_blank" itemprop="author">l-azrael</a>
+		
+  <p class="article-time">
+    <time datetime="2018-05-26T02:17:56.589Z" itemprop="datePublished"> Published 2018-05-26</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="socket-和-http"><a href="#socket-和-http" class="headerlink" title="socket 和 http"></a>socket 和 http</h3><p>socket 在传输层通信 采用tcp或者UDP协议。<br>socket 遵循TCP/UDP协议原则，只要建立连接，client和Server之间可以互相通信  </p>
+<p>http 在应用层通信 采用http或者https等协议<br>http 采用 请求-应答机制，请求时先建立连接，并且只有Client向Server发送请求的时候  server才会向Client 发送数据  </p>
+<h3 id="Tcp和建立连接的过程"><a href="#Tcp和建立连接的过程" class="headerlink" title="Tcp和建立连接的过程"></a>Tcp和建立连接的过程</h3><p>####Tcp 协议的几个标志位：<br>  SYN:请求连接<br>  ACK:确认（Acknowledgement）只有ACK=1时有效，也规定连接建立后所有发送的报文的ACK必须为1<br>  Seq:顺序号码<br>  Ack：确认号码（Acknowledge number）<br>  FIN: 结束</p>
+<p>####<br>第一次握手：建立连接。客户端发送连接请求报文段，将SYN位置为1，Sequence Number为x；然后，客户端进入SYN_SEND状态，等待服务器的确认；<br>第二次握手：服务器收到SYN报文段。服务器收到客户端的SYN报文段，需要对这个SYN报文段进行确认，设置Acknowledgment Number为x+1(Sequence Number+1)；同时，自己自己还要发送SYN请求信息，将SYN位置为1，Sequence Number为y；服务器端将上述所有信息放到一个报文段（即SYN+ACK报文段）中，一并发送给客户端，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN+ACK报文段。然后将Acknowledgment Number设置为y+1，向服务器发送ACK报文段，这个报文段发送完毕以后，客户端和服务器端都进入ESTABLISHED状态，完成TCP三次握手。<br>完成了三次握手，客户端和服务器端就可以开始传送数据。以上就是TCP三次握手的总体介绍</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/05/24/回顾服务器启动器相关-C-相关，多线程/" title="回顾服务器启动器相关(C#相关，多线程)" itemprop="url">回顾服务器启动器相关(C#相关，多线程)</a>
   </h1>
   <p class="article-author">By
